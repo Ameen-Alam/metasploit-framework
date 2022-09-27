@@ -1,0 +1,173 @@
+/**
+ * All of the CSS for your public-facing functionality should be
+ * included in this file.
+ */
+/**
+ * Environment for all styles (variables, additions, etc).
+ */
+/*--------------------------------------------------------------*/
+/*--------------------------------------------------------------*/
+.pk-toc {
+	--pk-toc-box-background: #e9ecef;
+	--pk-toc-box-color: #495057;
+	--pk-toc-box-small-background: #ced4da;
+	--pk-toc-box-border-radius: 50%;
+	--pk-toc-box-small-border-radius: 0;
+	--pk-toc-ol-line-height: 1.5;
+	--pk-toc-ol-font-size: 1rem;
+	--pk-toc-ol-ol-font-size: 0.875rem;
+	--pk-toc-box-font-size: 0.875rem;
+	--pk-toc-box-font-weight: 600;
+	--pk-toc-box-line-height: 1;
+	--pk-toc-widget-active-font-weight: bold;
+}
+
+/*--------------------------------------------------------------*/
+.pk-toc:not(:last-child) {
+	margin-bottom: 1.5rem;
+}
+
+.pk-toc:not(:first-child) {
+	margin-top: 1.5rem;
+}
+
+.pk-toc-title {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 1.5rem;
+}
+
+.pk-toc-title .pk-toc-btn-hide {
+	display: flex;
+	align-items: center;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	cursor: pointer;
+	margin-left: 1rem;
+}
+
+.pk-toc-title .pk-toc-btn-hide:after {
+	width: 0;
+	height: 0;
+	border: 0 solid transparent;
+	border-right-width: 0.25rem;
+	border-left-width: 0.25rem;
+	border-bottom: 0.25rem solid currentColor;
+	margin-left: 0.5em;
+	transition: 0.25s;
+	content: '';
+}
+
+.pk-toc-hide .pk-toc-title .pk-toc-btn-hide:after {
+	transform: rotate(180deg);
+}
+
+.pk-toc > ol:not(:first-child) {
+	margin-top: 1.5rem;
+}
+
+.pk-toc > ol:not(:last-child) {
+	margin-bottom: 1.5rem;
+}
+
+.pk-toc > ol:last-child {
+	margin-bottom: 0;
+}
+
+.pk-toc ol {
+	line-height: var(--pk-toc-ol-line-height);
+	font-size: var(--pk-toc-ol-font-size);
+	counter-reset: ol;
+}
+
+.pk-toc ol,
+.editor-styles-wrapper .pk-toc ol {
+	list-style: none;
+}
+
+.pk-toc ol li:not(:first-child) {
+	margin-top: 0.5rem;
+}
+
+.pk-toc ol > li {
+	position: relative;
+	padding-left: 2.5rem;
+}
+
+.pk-toc ol > li:before {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 1.5rem;
+	height: 1.5rem;
+	content: counter(ol);
+	counter-increment: ol;
+	background-color: var(--pk-toc-box-background);
+	color: var(--pk-toc-box-color);
+	font-size: var(--pk-toc-box-font-size);
+	font-weight: var(--pk-toc-box-font-weight);
+	line-height: var(--pk-toc-box-line-height);
+	border-radius: var(--pk-toc-box-border-radius);
+}
+
+.pk-toc ol ol {
+	list-style: none;
+	margin-top: 0.5rem;
+	margin-bottom: 0.5rem;
+	margin-left: 0;
+	padding-left: 0;
+	font-size: var(--pk-toc-ol-ol-font-size);
+}
+
+.pk-toc ol ol > li:not(:first-child) {
+	margin-top: 0.25rem;
+}
+
+.pk-toc ol ol > li {
+	position: relative;
+	padding-left: 2.5rem;
+}
+
+.pk-toc ol ol > li:before {
+	background: var(--pk-toc-box-small-background);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: absolute;
+	left: 0;
+	top: 0;
+	line-height: 1;
+	content: '';
+	width: 0.25rem;
+	height: 0.25rem;
+	margin-top: 0.6666666667rem;
+	left: 1rem;
+	border-radius: var(--pk-toc-box-small-border-radius);
+}
+
+.pk-anchor-link {
+	text-decoration: none;
+	color: inherit;
+}
+
+.pk-anchor-link:before {
+	font-family: 'powerkit-icons';
+	margin-right: 0.5rem;
+	content: "\e91b";
+}
+
+.powerkit_toc_widget ol {
+	padding-left: 0;
+}
+
+.powerkit_toc_widget ol li.active > a,
+.powerkit_toc_widget ol li.active-child > a {
+	font-weight: var(--pk-toc-widget-active-font-weight);
+	text-decoration: none;
+}
